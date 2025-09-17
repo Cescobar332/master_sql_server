@@ -1,0 +1,17 @@
+Tras abrir SSMS hacer clic en connect, y colocar el password establecido en la instalación. Clic derecho sobre la carpeta databases, New Database. Colocarle el nombre a la base de datos (sin caracteres especiales ni espacios ni puntuaciones). 
+En el explorador de archivos, dentro del disco C, crear una carpeta llamada SQLDATA, y dentro crear otra carpeta con el mismo nombre que le dimos a la base de datos. Esto con el fin de cambiar el PATH de ambos archivos de la base de datos. Finalizar con OK.
+
+¿Qué son los archivos MDF y LDF?
+- Archivo MDF (Master Data File): El archivo MDF es el principal archivo de datos de una base de datos en SQL Server. Contiene las tablas, índices, procedimientos almacenados y otros objetos de la base de datos.
+- Archivo LDF (Log Data File): El archivo LDF es el archivo de registro de transacciones de una base de datos en SQL Server. Registra todas las transacciones y cambios realizados en la base de datos, lo que permite la recuperación y la restauración de la misma en caso de fallos o pérdida de datos.
+
+Para poner la base de datos que recién creamos como la base de datos por default a usar para las consultas, en lugar de la master, hay que abrir la carpeta security, la carpeta logins, doble clic en el usuario sa, y abajo del todo cambiar la default database por la que está recién creada.
+
+Para crear la primer tabla de la base de datos:
+Desplegar el nombre de la base de datos, desplegar la carpeta tables y clic derecho sobre dicha carpeta, new table, y comenzar a colocar los nombres de las columnas, su tipo de dato, y si se permiten nulls o no.
+Una vez definidas todas las columnas le damos a guardar tabla, y por buena práctica siempre colocar los nombres de las tablas en singular.
+Para editar la tabla creada hay que dar clic derecho sobre ella y seleccionar la opción Design. Tras intentar guardar los cambios realizados va a aparecer un error.
+Para solucionar dicho error, hay que ir a la pestaña Tools, y seleccionar la opción Options... Abrir la opción Designers y seleccionar Table and Database Designers. Una vez ahí, desmarcar la opción Prevent saving changes that require table re-creation.
+Para asignar un campo como la primary-key de la tabla, hay que seleccionar el campo y darle al ícono arriba a la derecha de la llave (Set Primary Key).
+Para asignar un campo con la propiedad identity (autoincrement), seleccionar el campo, ampliar el panel de Column Properties, desplegar Identity Specification y en (Is Identity) colocarle Yes. Esto solo se puede colocar a los tipos de datos INT y BIGINT.
+Seleccionando varios campos y dándole clic a la llave se puede crear una PK compuesta. Una llave primaria compuesta es aquella que está formada por dos o más columnas de una tabla de base de datos y que, en conjunto, identifican de forma única cada fila. Se utiliza cuando ninguna columna por sí sola puede garantizar la unicidad de los registros, pero la combinación de los valores de esas columnas sí puede hacerlo. 

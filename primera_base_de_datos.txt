@@ -15,3 +15,13 @@ Para solucionar dicho error, hay que ir a la pestaña Tools, y seleccionar la op
 Para asignar un campo como la primary-key de la tabla, hay que seleccionar el campo y darle al ícono arriba a la derecha de la llave (Set Primary Key).
 Para asignar un campo con la propiedad identity (autoincrement), seleccionar el campo, ampliar el panel de Column Properties, desplegar Identity Specification y en (Is Identity) colocarle Yes. Esto solo se puede colocar a los tipos de datos INT y BIGINT.
 Seleccionando varios campos y dándole clic a la llave se puede crear una PK compuesta. Una llave primaria compuesta es aquella que está formada por dos o más columnas de una tabla de base de datos y que, en conjunto, identifican de forma única cada fila. Se utiliza cuando ninguna columna por sí sola puede garantizar la unicidad de los registros, pero la combinación de los valores de esas columnas sí puede hacerlo. 
+
+Definir tipos de datos de Usuario
+Dentro de las carpetas de la base de datos, desplegar Programmability. Dentro, desplegar Types, clic derecho a User-Defined Data Types para crear uno nuevo. Y por ejemplo, de Name: paciente, Data Type: int, y se le da OK.
+Por consola: CREATE TYPE medico FROM int not null y F5 para ejecutar la instrucción.
+Luego de crear esos tipos de datos, podemos ir a editar una tabla y colocarle a alguna columna ese tipo de dato creado.
+
+Foreign Keys
+Para crear una foreign key, al desplegar la tabla a la cual queramos añadir esa FK, vamos a la carpeta Keys y le damos clic derecho para crear una nueva FK. Le damos a la opción de Tables and Columns Specification, y luego los 3 puntos. Ya solo queda seleccionar de qué tabla proviene la FK y hacia qué tabla va, y cuáles son los respectivos campos en cada tabla.
+
+Para insertar registros en una tabla, podemos darle clic derecho a la tabla y seleccionar la opción edit top 200 rows.

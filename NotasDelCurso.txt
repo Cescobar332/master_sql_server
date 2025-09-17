@@ -1,0 +1,89 @@
+1. Proceso de instalación de Microsoft SQL Server
+- Ir a https://www.microsoft.com/es-es/sql-server/sql-server-downloads
+- Seleccionar la opción SQL Server Developer
+- Abrir el archivo descargado y seleccionar la opción Custom y darle clic a Instalar
+- Una vez terminada la descarga, darle clic a la opción Installation (arriba a la izquierda)
+- Clic a la primera opción (New SQL Server standalone installation)
+- Seleccionar la versión gratuita developer y darle next, aceptar TyC y darle next.
+- Darle check a usar microsoft updates y next
+- Next en install rules, y desmarcar la opción de azure extension for sql server
+- En las features seleccionar: SQL Server Replication, Full Text and Semantic Extractions e Integrations Services y click en next
+- Seleccionar Default instance y darle next
+- En el servicio de SQL Server Agent, cambiarle el Startup Type (la columna más a la derecha) y seleccionamos automatic, next
+- En authentication mode seleccionar Mixed Mode y establecemos la contraseña. Clic en Add Current User y clic en next
+- Clic en Install y luego Clic en Close cuando termine la instalación
+- Asegurarse de que el servicio esté en estado Running (Services en la búsqueda de Windows).
+- En caso de estar apagado, simplemente se le da clic al servicio y luego al icono verde (play)
+
+2. Proceso de instalación de SQL Server Management Studio (SSMS)
+- Ir a https://learn.microsoft.com/es-es/ssms/install/install
+- Seleccionar la última versión que aparece disponible
+- Abrir el archivo descargado y clic en Install
+- Una vez finalizado el proceso de instalación se reinicia el equipo
+- Importante:
+  Si obtienes este error al intentar iniciar sesión en SQL:
+  TITLE: Connect to Server
+  Cannot connect to .\.
+  ADDITIONAL INFORMATION:
+  A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - La cadena de certificación fue emitida por una entidad en la que no se confía.) (Microsoft SQL Server, Error: -2146893019)
+  A partir de la versión SQL 2022 dependiendo del equipo, es posible que requieras cambiar la opción Encryption en Optional, para poder iniciar sesión correctamente en el motor SQL.
+
+3. Conexión del SSMS con el motor SQL
+- Abrir el SSMS, en Server name dejar .\, SQL Server Authentication, login: sa y colocar la password que definimos anteriormente
+- Clic en conectar, si aparece el ícono con el play verde es que fue exitosa la conexión
+
+4. Conociendo el entorno
+- SSMS es un entorno que nos permite conectarnos a distintas instancias de bases de datos y poder administrar sus objetos.
+- Podemos crear tablas, procesos, diagramas, objetos.
+- A la izquierda el Object Explorer, a la derecha el Solution Explorer, y en medio los scripts.
+- En el menú file podemos darle a close solution. También se puede guardar en el equipo.
+- Lo correcto sería crear un proyecto dentro de la solución (clic derecho, add new project, de tipo SQL Server Scripts, se cambia el nombre y clic en Ok)
+- Clic derecho en la carpeta Queries, new query.
+- Con ctrl + s o el disquete se puede guardar el archivo
+- Con F5 se ejecuta el script y aparece el resultado de la query
+- Con ctrl + d los resultados aparecen en tipo tabla
+- Con ctrl + r se puede mostrar/ocultar la ventana de los resultados
+- En el menú file se puede seleccionar open project/solution y se abre la solución guardada que seleccionemos
+- En la carpeta Connections a la derecha, eliminamos el archivo que aparece por defecto
+- Clic derecho en la carpeta connections, New Connection para colocar nuestra contraseña
+
+5. Herramientas de SSMS
+- Los paneles se pueden arrastar y colocarlos donde se desee.
+- La opción de Parse nos dice si una consulta está correcta o tiene errores
+- Atajos de teclado generales:
+  - ctrl + Alt + L para mostrar/ocultar el panel de soluciones
+  - ctrl + N: Abrir nueva ventana de consulta.
+  - ctrl + O: Abrir un archivo de script.
+  - ctrl + S: Guardar el archivo de script actual.
+  - F5: Ejecutar el script seleccionado o todo el script.
+  - F8: Mostrar panel Object Explorer.
+  - ctrl + R: Mostrar u ocultar el panel de resultados.
+  - ctrl + Shift + U: Cambiar el texto seleccionado a mayúsculas
+  - ctrl + Shift + L: Cambiar el texto seleccionado a minúsculas
+  - ctrl + K + C: Comentar la selección
+  - ctrl + K + U: Descomentar la selección
+- Atajos de teclado de navegación y edición:
+  - ctrl + G: Ir a un número de línea específico dentro del script.
+  - ctrl + Shift + Flecha izquierda/derecha: Seleccionar palabras completas a la izquierda/derecha del cursor.
+  - Shift + Flecha arriba/abajo: Seleccionar bloques de texto hacia arriba/abajo
+- Atajos de teclado de resultados y cuadrícula:
+  - ctrl + D: Modo de cuadrícula.
+  - ctrl + T: Modo de texto
+
+6. Repaso de Unidades de Medida en Informática
+- Bit = 0 o 1
+- Byte = 8 bits
+- Kilobyte = 1024 bytes
+- Megabyte = 1024 kilobytes
+- Gigabyte = 1024 megabytes
+- Terabyte = 1024 gigabytes
+- Petabyte = 1024 terabytes
+
+7. Tipos de datos más utilizados
+Numéricos
+- Enteros INT, TINYINT, BIT, SMALLINT, BIGINT
+- Decimales MONEY, DECIMAL
+Texto
+- CHAR, VARCHAR, NCHAR, NVARCHAR, BINARY, VARBINARY
+Fecha y hora
+- DATETIME, DATE, TIME, SMALLDATETIME

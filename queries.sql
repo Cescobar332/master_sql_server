@@ -64,4 +64,27 @@ SELECT *
 FROM paciente
 WHERE apellido = 'Perez'
 AND nombre = 'Roberto'
-AND idpaciente = 7;
+OR idpaciente = 7;
+
+SELECT *
+FROM turno
+WHERE estado IN(2, 1, 3);
+
+SELECT *
+FROM paciente
+WHERE apellido IN ('perez', 'ramirez', 'Gonzalez');
+
+SELECT *
+FROM paciente
+WHERE nombre
+LIKE 'robe%';
+
+SELECT *
+FROM paciente
+WHERE nombre
+NOT LIKE '%rob';
+
+SELECT *
+FROM turno
+WHERE fechaTurno
+BETWEEN '20190102' AND '20190106'

@@ -21,6 +21,11 @@ ALTER PROC S_paciente (
 )
 AS
 
+SELECT apellido, nombre, idPais, observacion, 
+  (SELECT * FROM Pais ps WHERE ps.idpais = pa.idpais) descPais
+FROM paciente pa
+WHERE idpaciente = @idpacente
+  
 DECLARE @ordenamiento CHAR(1) = 'A'
 
 DECLARE @entero INT
